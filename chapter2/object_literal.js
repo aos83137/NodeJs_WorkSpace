@@ -29,4 +29,9 @@ const newObject = {
 newObject.sayJS();
 newObject.sayNode();
 console.log(newObject.ES6);
+<<<<<<< HEAD
  
+=======
+ 
+//
+>>>>>>> e4cde33334fcac2a8a4a6b195289e8dbe5da314c
