@@ -4,18 +4,18 @@ var sayNode = function(){
 };
 
 var es = "ES";
-var oldObject = {
-    sayJS: function(){
-        console.log("js");
-    },
-    sayNode:sayNode,
-};
-oldObject[es+6] = 'Fantastic';
+// var oldObject = {
+//     sayJS: function(){
+//         console.log("js");
+//     },
+//     sayNode:sayNode,
+// };
+// oldObject[es+6] = 'Fantastic';
 
 
-oldObject.sayNode();
-oldObject.sayJS();
-console.log(oldObject.ES6);
+// oldObject.sayNode();
+// oldObject.sayJS();
+// console.log(oldObject.ES6);
 
 //--------위는 원래 쓰던 형식 아래는 객체 리터럴
 console.log('---------------new Object----------------------');
