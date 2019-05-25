@@ -1,6 +1,10 @@
 ﻿# 안녕하십니까
 # 안뇨옹~! 안희건이에양~!
+chapter8/re/node_modules/
+chapter8/learn-mongoose/node_modules/
+chapter7/my_sequelize/node_modules/
 chapter7/testDB/node_modules/
 chapter7/testDB2/node_modules/
 chapter6/test/node_modules/
 chapter6/learn-express/node_modules/
+chapter9/nodebird/node_modules
