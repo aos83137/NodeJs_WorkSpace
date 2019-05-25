@@ -4,7 +4,7 @@
   "description": "익스프레스로 만드는 sns서비스 (트위터 흉내)",
   "main": "app.js",
   "scripts": {
-    "nodemon": "app"
+    "start": "nodemon ./bin/www"
   },
   "keywords": [
     "sns.",
