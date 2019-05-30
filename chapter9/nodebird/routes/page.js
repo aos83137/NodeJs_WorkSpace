@@ -1,3 +1,4 @@
+//(2)
 const express  = require('express');
 
 const router = express.Router();
@@ -14,12 +15,13 @@ router.get('/join', (req, res) =>{
     });
 });
 
-router.get('/', (req,res, next) => {
-    res.render('main', {
-        title : 'NodeBird',
+router.get('/', (req,res, next) => {//(2)
+    res.render('main',       //pug
+    {                        //json 형태로 pug파일에 전달할 데이터 내용
+        title : '2조프로젝트ㅠㅠ', 
         twits : [], 
         user : null,
-        loginerror : req.flash('loginError')
+        loginerror : req.flash('loginError'),
     });
 });
 

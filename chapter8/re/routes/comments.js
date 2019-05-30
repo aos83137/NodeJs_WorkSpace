@@ -6,7 +6,7 @@ var Cmnt = require('../schemas/cmnt');
 var router = express.Router(); //express.Router함수를 사용하기위에 변수에 저장
 
 router.get('/:id', function(req,res,next){
-    Cmnt.find({commenter: req.params.id}).populate('commmenter') //id값에 맞는 commenter찾는다.
+    Cmnt.find({commenter: req.params.id}).populate('`commmenter`') //id값에 맞는 commenter찾는다.
         .then((comments)=>{
             console.log("comments 내용들 : "+comments);
             res.json(comments);

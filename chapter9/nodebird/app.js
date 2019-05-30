@@ -9,8 +9,10 @@ require('dotenv').config(); // .env파일 내용을 읽어서
 // process.env.COOKIE_SECRET 이 됨
 
 const pageRouter = require('./routes/page');
+const {sequelize} = require('./models'); //db.sequelize 객체임
 
 const app = express();
+sequelize.sync();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -35,7 +37,7 @@ app.use(session({ // express-session 미들웨어를 사용하기 위해 app에 
 }));
 app.use(flash()); // 메세지가 잠깐 나왔다 마는거 Toast같은것
 
-app.use('/', pageRouter); // '/'면  pageRouter 하겠다.
+app.use('/', pageRouter); // '/'면  pageRouter 하겠다. (0):브라우져에서 여기로 옴 (1)
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');
@@ -51,5 +53,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(app.get('port'), () => { // 이게 중요 이게 실제로 서버를 대기 시켜주는것임 위에 port라는 키값 설정 했음 8001로
-            console.log(app.get('port'), '번 포트에서 대기중');
+            console.log(app.get('port'), '번 포트에서 대기중, http://127.0.0.1:8001');
             });
