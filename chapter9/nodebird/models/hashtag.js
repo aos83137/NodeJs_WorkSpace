@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => (
+module.exports = (sequelize, DataTypes) => ( //화살표 함수 return 하나 뿐이면 return 생략 가능에 {}생략가능 p60 (add4) 참고
   sequelize.define('hashtag', { //hashtags 테이블 생성
     title: {
       type: DataTypes.STRING(15),

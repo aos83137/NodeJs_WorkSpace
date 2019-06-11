@@ -4,15 +4,20 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = require('passport');
 require('dotenv').config(); // .env파일 내용을 읽어서 
 // process.env라는 객체에 설정한다.
 // process.env.COOKIE_SECRET 이 됨
 
 const pageRouter = require('./routes/page');
+const authRouter = require('./routes/auth');
 const {sequelize} = require('./models'); //db.sequelize 객체임
+const passportConfig = require('./passport'); //require('./passport/index.js')와 같다  폴더내 index.js파일은 require시 생략가능
+ //passport폴더 안에index.js만들어야함
 
 const app = express();
 sequelize.sync();
+passportConfig(passport);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -36,8 +41,11 @@ app.use(session({ // express-session 미들웨어를 사용하기 위해 app에 
     },
 }));
 app.use(flash()); // 메세지가 잠깐 나왔다 마는거 Toast같은것
+app.use(passport.initialize());// passport.initialize() 미들웨어는 요청(req객체)에 passport 설정을 심고
+app.use(passport.session()); //passport.session() 미들웨어는 req.session 객체에 passport 정보를 저장한다.
 
 app.use('/', pageRouter); // '/'면  pageRouter 하겠다. (0):브라우져에서 여기로 옴 (1)
+app.use('/auth', authRouter); 
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');
